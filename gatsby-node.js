@@ -96,6 +96,7 @@ exports.createPages = async ({ actions, graphql }) => {
     chunkedContentNodes.map(async (nodesChunk, i) => {
       const firstNode = nodesChunk[0]
       const page = i + 1
+      const offset = i ? perPage * page : i
 
       await actions.createPage({
         component: resolve(`./src/templates/index.js`),
@@ -103,7 +104,7 @@ exports.createPages = async ({ actions, graphql }) => {
         context: {
           firstId: firstNode.id,
           page: page,
-          offset: perPage * page,
+          offset: offset,
           totalPages: chunkedContentNodes.length - 1,
           perPage,
         },
