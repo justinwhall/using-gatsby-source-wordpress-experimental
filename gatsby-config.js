@@ -54,21 +54,28 @@ module.exports = {
         },
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-chakra-ui`,
-    //   options: {
-    //     /**
-    //      * @property {boolean} [isResettingCSS=true]
-    //      * if false, this plugin will not use `<CSSReset />
-    //      */
-    //     isResettingCSS: true,
-    //     /**
-    //      * @property {boolean} [isUsingColorMode=true]
-    //      * if false, this plugin will not use <ColorModeProvider />
-    //      */
-    //     isUsingColorMode: true,
-    //   },
-    // },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `product`,
+        path: `${__dirname}/src/products/`,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-page-creator",
+      options: {
+        path: `${__dirname}/src/products`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        defaultLayouts: {
+          product: require.resolve("./src/templates/product.js"),
+          // default: require.resolve("./src/components/default-page-layout.js"),
+        },
+      },
+    },
     `gatsby-transformer-sharp`,
     {
       resolve: "gatsby-plugin-react-svg",

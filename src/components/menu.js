@@ -13,7 +13,6 @@ import {
 } from "@chakra-ui/core"
 
 const StyledLink = styled(Link)`
-  color: red;
   color: #fff;
   display: inline-flex;
   user-select: none;

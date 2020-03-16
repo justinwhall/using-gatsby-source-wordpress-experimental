@@ -1,20 +1,19 @@
-import React, { useState } from "react"
+import React from "react"
 import { Heading, Box } from "@chakra-ui/core"
 import Layout from "../components/layout"
 import Container from "../components/container"
-import SupportForm from "../components/supportForm"
 
-const MyForm = () => {
+const Product = ({ children }) => {
   return (
     <Layout bg="gray.800" h="100vh" color="white">
       <Container maxWidth={600}>
         <Heading as="h1" color="pink.400">
-          Hey 👋, we're here to help
+          Hey It's a product
         </Heading>
-        <SupportForm />
+        {children}
       </Container>
     </Layout>
   )
 }
 
-export default MyForm
+export default Product
