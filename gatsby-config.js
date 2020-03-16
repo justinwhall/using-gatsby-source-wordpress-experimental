@@ -20,9 +20,7 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress-experimental`,
       options: {
-        url:
-          process.env.WPGRAPHQL_URL ||
-          `https://dev-gatsby-source-wordpress-v4.pantheonsite.io/graphql`,
+        url: `http://gatsby.local/graphql`,
         verbose: true,
         // for wp-graphql-gutenberg, attributes currently breaks due
         // to the origin schema. It works if we exclude attributes
@@ -56,7 +54,21 @@ module.exports = {
         },
       },
     },
-    `gatsby-plugin-chakra-ui`,
+    // {
+    //   resolve: `gatsby-plugin-chakra-ui`,
+    //   options: {
+    //     /**
+    //      * @property {boolean} [isResettingCSS=true]
+    //      * if false, this plugin will not use `<CSSReset />
+    //      */
+    //     isResettingCSS: true,
+    //     /**
+    //      * @property {boolean} [isUsingColorMode=true]
+    //      * if false, this plugin will not use <ColorModeProvider />
+    //      */
+    //     isUsingColorMode: true,
+    //   },
+    // },
     `gatsby-transformer-sharp`,
     {
       resolve: "gatsby-plugin-react-svg",

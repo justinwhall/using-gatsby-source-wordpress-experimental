@@ -7,12 +7,11 @@ import { Stack, Box, Heading, Text, Grid, Button } from "@chakra-ui/core"
 
 import Layout from "../components/layout"
 import { normalizePath } from "../utils/get-url-path"
-
-export default ({ data, pageContext }) => (
+const BlogIndex = ({ data, pageContext }) => (
   <Layout>
     <Stack spacing={5}>
       {data.allWpPost.nodes.map(page => (
-        <Box key={page.link}>
+        <Box key={page.uri}>
           <Link to={normalizePath(page.uri)}>
             <Box p={5} shadow="md" borderWidth="1px">
               <Grid templateColumns="1fr 2fr" gap={6}>
@@ -86,6 +85,8 @@ export default ({ data, pageContext }) => (
   </Layout>
 )
 
+export default BlogIndex
+
 export const query = graphql`
   fragment Thumbnail on File {
     childImageSharp {
@@ -99,7 +100,7 @@ export const query = graphql`
     allWpPost(
       limit: $perPage
       skip: $offset
-      filter: { nodeType: { in: ["Post", "Page", "Alot"] } }
+      filter: { nodeType: { in: ["Post", "Page"] } }
       sort: { fields: date, order: DESC }
     ) {
       nodes {

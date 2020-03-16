@@ -1,36 +1,64 @@
 import React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
-import { getUrlPath } from "../utils/get-url-path"
-import { Menu, Button, Grid, Box } from "@chakra-ui/core"
+import { Link } from "gatsby"
+import styled from "@emotion/styled"
 
-export default () => {
-  const { wpMenu } = useStaticQuery(graphql`
-    {
-      wpMenu(slug: { eq: "main-menu" }) {
-        name
-        menuItems {
-          nodes {
-            label
-            url
-          }
-        }
-      }
-    }
-  `)
+// import { getUrlPath } from "../utils/get-url-path"
+import {
+  Menu,
+  Box,
+  MenuButton,
+  MenuItem,
+  MenuList,
+  Button,
+} from "@chakra-ui/core"
 
-  return !!wpMenu && !!wpMenu.menuItems && !!wpMenu.menuItems.nodes ? (
-    <Box mb={10}>
+const StyledLink = styled(Link)`
+  color: red;
+  color: #fff;
+  display: inline-flex;
+  user-select: none;
+  position: relative;
+  white-space: nowrap;
+  vertical-align: middle;
+  line-height: 1.2;
+  outline: none;
+  height: 2.5rem;
+  min-width: 2.5rem;
+  font-size: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  align-items: center;
+`
+const StyledMenuButton = styled(MenuButton)`
+  background: transparent;
+  color: #fff;
+  padding-left: 2rem;
+  padding-right: 2rem;
+`
+
+const LittlBotMenu = () => {
+  return (
+    <Box bg="gray.800">
       <Menu>
-        <Grid autoFlow="column">
-          {wpMenu.menuItems.nodes.map((menuItem, i) => (
-            <Link style={{ display: `block` }} to={getUrlPath(menuItem.url)}>
-              <Button w="100%" key={i + menuItem.url} as={Button}>
-                {menuItem.label}
-              </Button>
-            </Link>
-          ))}
-        </Grid>
+        <StyledLink to="/">Home</StyledLink>
+        <StyledMenuButton
+          as={Button}
+          rightIcon="chevron-down"
+          fontWeight="normal"
+        >
+          Products
+        </StyledMenuButton>
+        <MenuList>
+          <MenuItem>LittlBot Invoices</MenuItem>
+          <MenuItem>LittleBot ACH for Stripe + Plaid</MenuItem>
+        </MenuList>
+        <StyledLink to="/about/">About</StyledLink>
+        <StyledLink to="/contact/">Contact</StyledLink>
+        <StyledLink to="/support/">Support</StyledLink>
+        <StyledLink to="/make-a-donation/">Make a Donation</StyledLink>
       </Menu>
     </Box>
-  ) : null
+  )
 }
+
+export default LittlBotMenu
