@@ -1,11 +1,11 @@
 import React, { useState } from "react"
-import { Heading, Box } from "@chakra-ui/core"
+import { Box } from "@chakra-ui/core"
 import styled from "@emotion/styled"
 import {
   FormControl,
   FormLabel,
-  FormErrorMessage,
-  FormHelperText,
+  // FormErrorMessage,
+  // FormHelperText,
   Input,
   Textarea,
   Button,

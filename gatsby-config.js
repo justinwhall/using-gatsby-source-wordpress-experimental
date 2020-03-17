@@ -58,13 +58,27 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `product`,
-        path: `${__dirname}/src/products/`,
+        path: `${__dirname}/src/mdx/plugins/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `invoices`,
+        path: `${__dirname}/src/mdx/docs/littlebot-invoices/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `ach`,
+        path: `${__dirname}/src/mdx/docs/littlebot-ach-stripe-plaid/`,
       },
     },
     {
       resolve: "gatsby-plugin-page-creator",
       options: {
-        path: `${__dirname}/src/products`,
+        path: `${__dirname}/src/mdx`,
       },
     },
     {
@@ -72,7 +86,8 @@ module.exports = {
       options: {
         defaultLayouts: {
           product: require.resolve("./src/templates/product.js"),
-          // default: require.resolve("./src/components/default-page-layout.js"),
+          invoices: require.resolve("./src/templates/doc-invoices.js"),
+          ach: require.resolve("./src/templates/doc-ach.js"),
         },
       },
     },

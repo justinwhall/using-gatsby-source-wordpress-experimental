@@ -9,7 +9,7 @@ const Container = props => {
   }
 
   return (
-    <Box margin="0 auto" {...styles}>
+    <Box margin="0 auto" padding={5} {...styles}>
       {props.children}
     </Box>
   )

@@ -26,7 +26,7 @@ export default () => (
         fontSize="lg"
         variantColor="pink"
       >
-        LittleBot Invoices
+        Checkout LittleBot Invoices
       </Button>
     </StyledBox>
     <Box className="featured-product">
