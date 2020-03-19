@@ -3,13 +3,13 @@ import { Box } from "@chakra-ui/core"
 
 const Container = props => {
   const styles = {
-    paddingTop: 4,
+    padding: "60px 10px",
     maxWidth: 1200,
     ...props,
   }
 
   return (
-    <Box margin="0 auto" padding={5} {...styles}>
+    <Box margin="0 auto" {...styles}>
       {props.children}
     </Box>
   )

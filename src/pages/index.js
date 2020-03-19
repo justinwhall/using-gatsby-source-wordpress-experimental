@@ -3,7 +3,9 @@ import { Heading, Box, Button } from "@chakra-ui/core"
 import Layout from "../components/layout"
 import styled from "@emotion/styled"
 import { Link } from "gatsby"
-import { SimpleGrid } from "@chakra-ui/core"
+import FeaturedProduct from "../components/FeaturedProduct"
+import AwesomeSupport from "../components/AwesomeSupport"
+import LoveWordPress from "../components/LoveWordPress"
 
 const StyledBox = styled(Box)`
   height: 100vh;
@@ -22,23 +24,14 @@ export default () => (
         as={Link}
         to="/plugins/littlebot-invoices/"
         mt="10"
-        // bg="orange"
         fontSize="lg"
         variantColor="pink"
       >
         Checkout LittleBot Invoices
       </Button>
     </StyledBox>
-    <Box className="featured-product">
-      <sub>featured</sub>
-      <h2>LittleBot Invoices</h2>
-      <SimpleGrid columns={{ sm: 2, md: 4 }} spacing="40px">
-        <Box bg="tomato" height="80px"></Box>
-        <Box bg="tomato" height="80px"></Box>
-        <Box bg="tomato" height="80px"></Box>
-        <Box bg="tomato" height="80px"></Box>
-        <Box bg="tomato" height="80px"></Box>
-      </SimpleGrid>
-    </Box>
+    <FeaturedProduct />
+    <AwesomeSupport />
+    <LoveWordPress />
   </Layout>
 )

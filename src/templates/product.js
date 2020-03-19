@@ -4,9 +4,10 @@ import { Heading } from "@chakra-ui/core"
 import Layout from "../components/layout"
 import Container from "../components/container"
 import { SimpleGrid, Button, Box } from "@chakra-ui/core"
+import AwesomeSupport from "../components/AwesomeSupport"
 
 const Product = props => {
-  const { docs, download, intro, title } = props.pageContext.frontmatter
+  const { intro, title } = props.pageContext.frontmatter
 
   return (
     <Layout>
@@ -15,9 +16,13 @@ const Product = props => {
           {title}
         </Heading>
         <Box fontSize={25}>{intro}</Box>
-      </Container>
-      <Container maxWidth={450}>
-        <SimpleGrid minChildWidth="180px" spacing="20px">
+        <SimpleGrid
+          minChildWidth="180px"
+          spacing="20px"
+          maxWidth={400}
+          margin="0 auto"
+          mt={5}
+        >
           <Button
             as={Link}
             to="/plugins/littlebot-invoices/"
@@ -35,6 +40,7 @@ const Product = props => {
         </SimpleGrid>
       </Container>
       {props.children}
+      <AwesomeSupport />
     </Layout>
   )
 }

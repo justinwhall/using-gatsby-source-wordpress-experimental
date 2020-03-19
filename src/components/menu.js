@@ -48,8 +48,14 @@ const LittlBotMenu = () => {
           Products
         </StyledMenuButton>
         <MenuList>
-          <MenuItem>LittlBot Invoices</MenuItem>
-          <MenuItem>LittleBot ACH for Stripe + Plaid</MenuItem>
+          <MenuItem>
+            <Link to="/plugins/littlebot-invoices/">LittlBot Invoices</Link>
+          </MenuItem>
+          <MenuItem>
+            <Link to="/plugins/littlebot-ach-stripe-plaid/">
+              LittleBot ACH for Stripe + Plaid
+            </Link>
+          </MenuItem>
         </MenuList>
         <StyledLink to="/about/">About</StyledLink>
         <StyledLink to="/contact/">Contact</StyledLink>

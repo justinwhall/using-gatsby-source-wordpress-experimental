@@ -1,6 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
-import { Box, Heading } from "@chakra-ui/core"
+import { Box } from "@chakra-ui/core"
 
 const products = {
   invoices: "LittleBot Invoices",
@@ -34,7 +34,7 @@ const Menu = props => {
       left={0}
       top="40px"
       height="100vh"
-      width={200}
+      width={300}
       bg="gray.100"
       padding={10}
     >
